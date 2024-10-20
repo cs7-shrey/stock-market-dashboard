@@ -4,7 +4,7 @@
       "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
     },
     "globalHeaders": {
-      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; connect-src https: wss://ws.finnhub.io wss://simpleclockbackend-gxeyedauc4afdcbk.canadacentral-01.azurewebsites.net;"
+      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; connect-src https: wss://ws.finnhub.io wss://simpleclockbackend-gxeyedauc4afdcbk.canadacentral-01.azurewebsites.net; img-src https: data:"
     },
     "mimeTypes": {
       ".json": "text/json"
