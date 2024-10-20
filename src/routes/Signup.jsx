@@ -1,4 +1,4 @@
-import GoogleButton from "react-google-button";
+import GoogleButton from "../components/GoogleButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [signingUp, setSigningUp] = useState(false);
   const [password, setPassword] = useState("");
-  const { signUp, user, loading, logOut } = useUserAuth();
+  const { signUp, user, loading, logOut, googleSignIn } = useUserAuth();
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +19,18 @@ export default function Signup() {
       navigate('/');
     }
   }, [loading])
+
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+    console.log("google sign in clicked")
+    try {
+      await googleSignIn();
+      navigate("/");
+    } catch (error) {
+      setError(error.message)
+      console.log("ye bhaiya google sign in mein error aagya hai", error)
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,9 +58,6 @@ export default function Signup() {
     <>
       {!user ?
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 dark:bg-black">
-          {signingUp && <>
-            <Loading />
-          </>}
           <div className="shadow-lg rounded-xl p-4 sm:w-[450px] mx-auto dark:bg-[rgb(14,15,15)]">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
@@ -57,7 +66,17 @@ export default function Signup() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <AuthForm onEmailChange={(e) => setEmail(e.target.value)} onPasswordChange={(e) => setPassword(e.target.value)} onSubmit={handleSubmit} type="Sign Up" error={error} />
+              <AuthForm 
+              onEmailChange={(e) => setEmail(e.target.value)} 
+              onPasswordChange={(e) => setPassword(e.target.value)} 
+              onSubmit={handleSubmit} type="Sign Up" 
+              error={error} 
+              processing={signingUp}
+              />
+              <br />
+              <div className="self-center mx-auto w-fit">
+                <GoogleButton onClick={handleGoogleSignIn} />
+              </div>
               <div className="p-4 box mt-3 text-center dark:text-white">
                 Already have an account?
                 <Link to="/login"
