@@ -38,18 +38,21 @@ const WebSocketChart = () => {
 
   const socketRef = useRef(null);
 
-  useEffect(() => {
-    socketRef.current = new WebSocket('https://simpleclockbackend-gxeyedauc4afdcbk.canadacentral-01.azurewebsites.net/ws');
+    useEffect(() => {
+      const socket = new WebSocket('wss://simpleclockbackend-gxeyedauc4afdcbk.canadacentral-01.azurewebsites.net/ws');
+      socket.onopen = (event) => {
+        console.log("Connection to web socket successful");
+        socketRef.current = socket;
+      }
+      socket.onmessage = (event) => {
+        const newNumber = parseInt(event.data, 10);
+        updateChartData(newNumber);
+      };
 
-    socketRef.current.onmessage = (event) => {
-      const newNumber = parseInt(event.data, 10);
-      updateChartData(newNumber);
-    };
-
-    return () => {
-      if (socketRef.current) socketRef.current.close();
-    };
-  }, []);
+      return () => {
+        if (socketRef.current) socketRef.current.close();
+      };
+    }, []);
 
   const updateChartData = (newNumber) => {
     setChartData(prevData => {
