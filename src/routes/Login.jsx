@@ -45,7 +45,7 @@ export default function Login() {
     console.log("google sign in clicked")
     try {
       await googleSignIn();
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       setError(error.message)
       console.log("ye bhaiya google sign in mein error aagya hai", error)
