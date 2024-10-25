@@ -61,7 +61,8 @@ export default function LandingPage() {
                             The future belongs to those who invest in it.
                         </div>
                         <div>
-                            <button className="text-[50px] sm:text-[50px] text-black px-6 py-1 rounded-xl mt-10 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-[#0046cc] dark:focus:ring-blue-800"
+                            {/* <button className="text-[50px] sm:text-[50px] text-black px-6 py-1 rounded-xl mt-10 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-[#0046cc] dark:focus:ring-blue-800" */}
+                            <button className="px-8 py-3 my-8 mx-2 text-[50px] font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10"
                                 style={{
                                     fontFamily: "FK Grotesk Neue, Arial, sans-serif",
                                     lineHeight: "75px",
