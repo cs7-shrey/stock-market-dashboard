@@ -22,7 +22,8 @@ ChartJS.register(
 );
 import { StockLineChart } from './stockinfo/Prices';
 import { chartLineStyles } from './stockinfo/Prices';
-const WebSocketChart = () => {
+function WebSocketChart()  {
+  const [connecting, setConnecting] = useState('Connecting...');
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -39,12 +40,20 @@ const WebSocketChart = () => {
   const socketRef = useRef(null);
 
     useEffect(() => {
+      let i = 0;
       const socket = new WebSocket('wss://simpleclockbackend-gxeyedauc4afdcbk.canadacentral-01.azurewebsites.net/ws');
       socket.onopen = (event) => {
         console.log("Connection to web socket successful");
         socketRef.current = socket;
       }
       socket.onmessage = (event) => {
+        if (i == 0) {
+          setConnecting('Connected!');
+          setTimeout(() => {
+            setConnecting('');
+          }, 500)
+          i += 1;
+        }
         const newNumber = parseInt(event.data, 10);
         updateChartData(newNumber);
       };
@@ -106,7 +115,8 @@ const WebSocketChart = () => {
   };
 
   return (
-    <div className='dark:bg-black h-full sm:p-10'>
+    <div className='dark:bg-black dark:text-white h-full sm:p-10'>
+      {connecting}
       <Line data={chartData} options={options} />
     </div>
   );

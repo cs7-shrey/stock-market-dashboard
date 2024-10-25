@@ -112,7 +112,7 @@ export default function Stocks() {
                         <div className="flex flex-col items-centre m-3">
                             {loading ? <div className="dark:bg-inherit dark:text-white">
                                 Loading...
-                                </div> 
+                            </div>
                                 :
                                 <ul className="w-[90%]">
                                     {/* <div className="p-3 m-1 "> */}
@@ -155,6 +155,17 @@ export default function Stocks() {
                     {/* <div className="flex justify-center items-center">
                         Kadi te has bol ve
                     </div> */}
+                    <div className="flex justify-end">
+                        <button
+                            className="py-2 px-3 text-sm font-medium rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700" href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                logOut();
+                            }}
+                        >
+                            Logout
+                        </button>
+                    </div>
                     <Outlet />
                 </div>
             </div>

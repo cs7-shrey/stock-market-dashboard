@@ -24,17 +24,6 @@ export default function StockPage() {
         <>
             <div className="flex flex-col">
                 <div>
-                    <div className="flex justify-end">
-                        <button
-                            className="py-2 px-3 text-sm font-medium rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700" href="#"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                logOut();
-                            }}
-                        >
-                            Logout
-                        </button>
-                    </div>
                     <nav className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-betwee mt-6">
                         <div className="grid sm:grid-cols-4 grid-cols-2 items-center justify-center w-full mt-3 sm:justify-end sm:mt-0">
                             <div className="text-center">
