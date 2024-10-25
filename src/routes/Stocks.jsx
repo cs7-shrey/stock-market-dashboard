@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, Outlet, Form, useSubmit, useLoaderData, useNavigate, useLocation } from "react-router-dom";
+import { useUserAuth } from "../context/UserAuthContext";
 import { matchSorter } from "match-sorter";
 import toggleIcon from "../assets/threelines.svg";
 export async function loader({ request }) {
@@ -15,6 +16,7 @@ export default function Stocks() {
     const [error, setError] = useState(null);
     const [searchQ, setSearchQ] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(true);
+    const { logOut } = useUserAuth();
 
     const { q } = useLoaderData();
     const submit = useSubmit();
