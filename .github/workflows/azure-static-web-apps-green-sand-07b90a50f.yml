@@ -25,6 +25,16 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_SAND_07B90A50F }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          VITE_STOCK_API_KEY: mBaXyUCSiV7oK6vKxonokk8yXxApnlme
+          VITE_REALTIME_API_KEY: fb89041110a14b8b89e3b89bbd86641a
+
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_AUTH_DOMAIN: first-firebase-project-c726b.firebaseapp.com
+          VITE_FIREBASE_PROJECT_ID: first-firebase-project-c726b
+          VITE_FIREBASE_STORAGE_BUCKET: first-firebase-project-c726b.appspot.com
+          VITE_FIREBASE_MESSAGING_SENDER_ID: 393798930059
+          VITE_FIREBASE_APP_ID: 1:393798930059:web:e4ef95ca4bdea7f1f3ce8e
+          VITE_FIREBASE_MEASUREMENT_ID: G-NSZBV50741
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
