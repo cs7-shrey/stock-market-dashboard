@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useUserAuth } from "../context/UserAuthContext";
 import AuthForm from "../components/AuthForm";
 import GoogleButton from "../components/GoogleButton";
-import Loading from "../components/Loading";
 import Bat from "../assets/bat.svg"
 
 // firebase import  [left for now]
@@ -16,6 +15,8 @@ export default function Login() {
   const { logIn, googleSignIn, user, loading } = useUserAuth();
   const navigate = useNavigate();
   const [loggingIn, setLoggingIn] = useState(false);
+  const dpr = window.devicePixelRatio;
+  const scaleRatio = 1.1 / dpr;
 
   useEffect(() => {
     if (user) {
@@ -62,7 +63,11 @@ export default function Login() {
       {user ? <div className="dark:bg-black w-full h-full dark:text-white">
       </div>
         :
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 dark:bg-black">
+        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 dark:bg-black"
+          // style={{
+          //   "transform": `scale(${scaleRatio})`
+          // }}
+        >
 
 
           <div
