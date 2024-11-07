@@ -23,7 +23,7 @@ jobs:
         env: 
           VITE_STOCK_API_KEY: mBaXyUCSiV7oK6vKxonokk8yXxApnlme
           VITE_REALTIME_API_KEY: fb89041110a14b8b89e3b89bbd86641a
-          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_API_KEY: AIzaSyB-98642LQ4QJRPHa9MEOHPgamtlqZ8Vfc
           VITE_FIREBASE_AUTH_DOMAIN: first-firebase-project-c726b.firebaseapp.com
           VITE_FIREBASE_PROJECT_ID: first-firebase-project-c726b
           VITE_FIREBASE_STORAGE_BUCKET: first-firebase-project-c726b.appspot.com
