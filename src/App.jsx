@@ -21,7 +21,6 @@ import BalanceSheet from './routes/stockinfo/BalanceSheet'
 import Ratios from './routes/stockinfo/Ratios'
 import RealTime from './routes/RealTime'
 
-console.log('this is firebase api key', import.meta.env.VITE_FIREBASE_API_KEY);
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<UserAuthContextProvider><Outlet /></UserAuthContextProvider>}>
